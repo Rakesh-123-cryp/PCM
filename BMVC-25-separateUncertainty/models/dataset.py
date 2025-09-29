@@ -57,7 +57,7 @@ class Dataset:
 
         self.dtu_novel = self.conf.get_bool('dtu_novel', default=False)
 
-        print(os.path.join(self.data_dir, self.img_dir))
+        print("###############", os.path.join(self.data_dir, self.img_dir))
         self.images_lis = sorted(glob(os.path.join(self.data_dir, self.img_dir, '*' + self.img_psfx)))
         f_inlier = os.path.join(self.data_dir, 'correct_list.txt')
         if self.inlier_only:
