@@ -89,6 +89,7 @@ class Dataset:
             self.data_type = 'DTU'
 
         if self.use_init:
+            print("path", self.data_dir, self.render_cameras_name)
             camera_dict = np.load(os.path.join(self.data_dir, self.render_cameras_name))
             self.camera_dict = camera_dict
             if self.data_type == 'DTU':
