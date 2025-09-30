@@ -57,7 +57,7 @@ class Dataset:
 
         self.dtu_novel = self.conf.get_bool('dtu_novel', default=False)
 
-        print("###############", os.path.join(self.data_dir, self.img_dir))
+        print(os.path.join(self.data_dir, self.img_dir))
         self.images_lis = sorted(glob(os.path.join(self.data_dir, self.img_dir, '*' + self.img_psfx)))
         f_inlier = os.path.join(self.data_dir, 'correct_list.txt')
         if self.inlier_only:
@@ -89,10 +89,10 @@ class Dataset:
             self.data_type = 'DTU'
 
         if self.use_init:
-            print("path", self.data_dir, self.render_cameras_name)
             camera_dict = np.load(os.path.join(self.data_dir, self.render_cameras_name))
             self.camera_dict = camera_dict
-            print(camera_dict.keys())
+            for k in dict(camera_dict).keys():
+                print(k)
             if self.data_type == 'DTU':
                 try:
                     self.world_mats_np = [camera_dict['world_mat_{}'.format(int(os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
