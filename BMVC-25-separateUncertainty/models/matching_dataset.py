@@ -19,6 +19,7 @@ class MatchingDataset(Dataset):
 
         # load colmap database
         self.db_file = os.path.join(self.conf['data_dir'], self.conf['colmap_db'])
+        print("#####", self.db_file)
         cam_path = os.path.join(self.data_dir, self.render_cameras_name)
         self.colmap = ColmapData(self.db_file, self.n_images, self.images_lis, thresh=self.pair_thresh, cam_path=cam_path)
         self.colmap.exec()
