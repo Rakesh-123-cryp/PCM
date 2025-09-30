@@ -92,6 +92,7 @@ class Dataset:
             print("path", self.data_dir, self.render_cameras_name)
             camera_dict = np.load(os.path.join(self.data_dir, self.render_cameras_name))
             self.camera_dict = camera_dict
+            print(camera_dict.keys())
             if self.data_type == 'DTU':
                 try:
                     self.world_mats_np = [camera_dict['world_mat_{}'.format(int(os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
