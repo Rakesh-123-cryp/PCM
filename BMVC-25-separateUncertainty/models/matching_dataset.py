@@ -151,8 +151,8 @@ class MatchingDataset(Dataset):
         keypoints2 = self.colmap.keypoints[img_pair[1]].astype(int)
 
         # idx in dataset
-        img_idx1 = self.image_idx_trans[img_pair[0]]
-        img_idx2 = self.image_idx_trans[img_pair[1]]
+        img_idx1 = self.image_idx_trans[img_pair[0]].to(self.device)
+        img_idx2 = self.image_idx_trans[img_pair[1]].to(self.device)
 
         if n_match > 0:
             match_pt1 = torch.from_numpy(keypoints1[match[:, 0]]).to(self.device)  # Move to GPU
