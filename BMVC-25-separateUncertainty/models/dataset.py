@@ -81,7 +81,7 @@ class Dataset:
         if len(self.masks_lis) != 0:
             self.using_mask = True
             self.masks_np = np.stack([cv.imread(im_name) for im_name in self.masks_lis]) / 256.0
-            self.masks = torch.from_numpy(self.masks_np.astype(np.float32)).cpu()   # [n_images, H, W, 3]
+            self.masks = torch.from_numpy(self.masks_np.astype(np.float32)).to(self.device)#.cpu()   # [n_images, H, W, 3]
         else:
             self.using_mask = False
 
