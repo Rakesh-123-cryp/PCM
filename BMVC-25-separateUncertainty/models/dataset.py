@@ -97,7 +97,7 @@ class Dataset:
                 except:
                     self.world_mats_np = [camera_dict['world_mat_{}'.format((os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
             else:
-                self.world_mats_np = [camera_dict['world_mat_{}'.format((os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
+                self.world_mats_np = [camera_dict['world_mat_{}'.format(idx)].astype(np.float32) for idx in self.images_lis]
 
             self.scale_mats_np = []
 
@@ -107,7 +107,7 @@ class Dataset:
                 except:
                     self.scale_mats_np = [camera_dict['scale_mat_{}'.format((os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
             else:
-                self.scale_mats_np = [camera_dict['scale_mat_{}'.format((os.path.basename(idx)[:-4]))].astype(np.float32) for idx in self.images_lis]
+                self.scale_mats_np = [camera_dict['scale_mat_{}'.format(idx)].astype(np.float32) for idx in self.images_lis]
 
             if self.from_ckpt:
                 assert self.pose_ckpt and os.path.exists(self.pose_ckpt)
