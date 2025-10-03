@@ -75,7 +75,7 @@ class ColmapData:
         if 'dtu' in data_dir or 'DTU' in data_dir or 'llff' in data_dir:
             world_mats_np = [camera_dict['world_mat_{}'.format(idx)].astype(np.float32) for idx in range(images_len)]
         else:
-            world_mats_np = [camera_dict['world_mat_{}'.format(name[:-4])].astype(np.float32) for name in images_list]
+            world_mats_np = [camera_dict['world_mat_{}'.format(name)].astype(np.float32) for name in range(images_len)]
 
         para_all = []
         for world_mat in world_mats_np:
